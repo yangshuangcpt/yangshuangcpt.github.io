@@ -1,37 +1,301 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>web编程期中项目 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Node.JS新闻网站爬虫、并实现爬取结果查询（如果图片加载不出来，请连接外网vpn，或者进入我的github项目中查看images文件夹） 新闻网站爬取​    本项目爬取的网站为东方财富和财经网，集中在4.27日-4.29日三天的傍晚进行网页爬取，总共爬取了649条有效网站，并将新闻网站内容进行解析，选取了网站链接、新闻标题、关键词、网站来源、摘要、发布时间、爬取时间、新闻内容存储于Mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="web编程期中项目">
+<meta property="og:url" content="http://example.com/2022/03/15/web%E7%BC%96%E7%A8%8B%E6%9C%9F%E4%B8%AD%E9%A1%B9%E7%9B%AE/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Node.JS新闻网站爬虫、并实现爬取结果查询（如果图片加载不出来，请连接外网vpn，或者进入我的github项目中查看images文件夹） 新闻网站爬取​    本项目爬取的网站为东方财富和财经网，集中在4.27日-4.29日三天的傍晚进行网页爬取，总共爬取了649条有效网站，并将新闻网站内容进行解析，选取了网站链接、新闻标题、关键词、网站来源、摘要、发布时间、爬取时间、新闻内容存储于Mysql">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.com/yangshuangcpt/web/raw/main/mid_project/images/1619702126343.png">
+<meta property="og:image" content="https://github.com/yangshuangcpt/web/raw/main/mid_project/images/1619704779644.png">
+<meta property="og:image" content="https://github.com/yangshuangcpt/web/raw/main/mid_project/images/1619710028983.png">
+<meta property="og:image" content="https://github.com/yangshuangcpt/web/raw/main/mid_project/images/1619709736106.png">
+<meta property="og:image" content="https://github.com/yangshuangcpt/web/raw/main/mid_project/images/1619761922.png">
+<meta property="og:image" content="https://github.com/yangshuangcpt/web/raw/main/mid_project/images/diftime.jpg">
+<meta property="og:image" content="https://github.com/yangshuangcpt/web/raw/main/mid_project/images/1619752645.png">
+<meta property="og:image" content="https://github.com/yangshuangcpt/web/raw/main/mid_project/images/1619752267.png">
+<meta property="og:image" content="https://github.com/yangshuangcpt/web/raw/main/mid_project/images/1619752496.png">
+<meta property="article:published_time" content="2022-03-15T08:53:51.000Z">
+<meta property="article:modified_time" content="2022-03-15T08:55:38.345Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/yangshuangcpt/web/raw/main/mid_project/images/1619702126343.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="port-web编程期中项目" class="h-entry article article-type-port" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/03/15/web%E7%BC%96%E7%A8%8B%E6%9C%9F%E4%B8%AD%E9%A1%B9%E7%9B%AE/" class="article-date">
+  <time class="dt-published" datetime="2022-03-15T08:53:51.000Z" itemprop="datePublished">2022-03-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      web编程期中项目
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Node-JS新闻网站爬虫、并实现爬取结果查询"><a href="#Node-JS新闻网站爬虫、并实现爬取结果查询" class="headerlink" title="Node.JS新闻网站爬虫、并实现爬取结果查询"></a>Node.JS新闻网站爬虫、并实现爬取结果查询</h1><p>（如果图片加载不出来，请连接外网vpn，或者进入我的github项目中查看images文件夹）</p>
+<h2 id="新闻网站爬取"><a href="#新闻网站爬取" class="headerlink" title="新闻网站爬取"></a>新闻网站爬取</h2><p>​    本项目爬取的网站为<strong>东方财富</strong>和<strong>财经网</strong>，集中在4.27日-4.29日三天的傍晚进行网页爬取，总共爬取了649条有效网站，并将新闻网站内容进行解析，选取了网站链接、新闻标题、关键词、网站来源、摘要、发布时间、爬取时间、新闻内容存储于<strong>Mysql</strong>数据库中。</p>
+<h4 id="引用的模块"><a href="#引用的模块" class="headerlink" title="引用的模块"></a>引用的模块</h4><h5 id="request模块"><a href="#request模块" class="headerlink" title="request模块"></a>request模块</h5><p>​    该模块在读取种子页面，遍历新闻链接的时候和读取新闻链接的时候时使用。该模块使http请求变得更简单。</p>
+<h5 id="iconv-lite模块"><a href="#iconv-lite模块" class="headerlink" title="iconv-lite模块"></a>iconv-lite模块</h5><p>​    该模块的作用就是转码，用iconv-lite.decode( )转码，可以设置成’utf-8’，以规避乱码产生。</p>
+<h5 id="cheerio模块"><a href="#cheerio模块" class="headerlink" title="cheerio模块"></a>cheerio模块</h5><p>​    该模块是爬虫中很重要的一个模块，其主要作用是加载你要访问的HTML页面，即把HTML页面翻译给处理器。有了它我们才能对网页做进一步处理操作。</p>
+<h4 id="分析新闻页面"><a href="#分析新闻页面" class="headerlink" title="分析新闻页面"></a>分析新闻页面</h4><p>​    下方部分代码和图片是我对东方财富网网页内容进行解析的方式（全部代码可以到我的github项目中去看），首先要进入东方财富的主页（种子页面）读取所有新闻链接（子网页）这一过程需要使用正则表达式来帮助判断新闻链接是否合法。之后根据网页的源代码（源代码查看方式：Fn+F12）分析所有新闻页面，解析出结构化数据。</p>
+<p>​    以下代码位于crawl_eastmoney.js文件中，是对东方财富网进行的爬取。而对财经网进行爬取的代码是在crawl_caijing.js中。对财经网的爬取与对东方财富网的爬取很类似，只是在网页链接的匹配和关键字的匹配上有所不同，在此就不展示了，具体可以看我的代码。create_table.sql主要是为了在数据库中创建数据表，mysql.js是为了在node.js中连接到数据库，这两个文件在后续会进行说明。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//$表示查找，如$(&#x27;a&#x27;)查找以a开头的子网页链接。‘#’表示查找的是id，‘.’表示查找的是class</span><br><span class="line">var seedURL_format = &quot;$(&#x27;a&#x27;)&quot;;</span><br><span class="line">var keywords_format = &quot; $(&#x27;meta[name=\&quot;keywords\&quot;]&#x27;).eq(0).attr(\&quot;content\&quot;)&quot;; //eq（0）是从头开始把content的数据都取出来</span><br><span class="line">var description_format = &quot;$(&#x27;meta[name=\&quot;description\&quot;]&#x27;).eq(0).attr(\&quot;content\&quot;)&quot;;</span><br><span class="line">var title_format = &quot;$(&#x27;title&#x27;).text()&quot;;</span><br><span class="line">var date_format = &quot;$(&#x27;.time&#x27;).text()&quot;;</span><br><span class="line">var content_format = &quot;$(&#x27;.Body&#x27;).text()&quot;;</span><br><span class="line"></span><br><span class="line">//使用正则表达式选取合适的网页链接</span><br><span class="line">var url_reg = /\https?:\/\/finance[.]eastmoney[.]com\/a\/\d*.html/;</span><br><span class="line">//使用正则表达式选取网页发表时间</span><br><span class="line">var regExp = /((\d&#123;4&#125;|\d&#123;2&#125;)(\-|\/|\.)\d&#123;1,2&#125;\3\d&#123;1,2&#125;)|(\d&#123;4&#125;年\d&#123;1,2&#125;月\d&#123;1,2&#125;日)/</span><br></pre></td></tr></table></figure>
+
+<pre><code> 东方财富网站主网页（种子网页）上有很多链接，但是并非所有的链接都为新闻链接，也有一些链接是指向其他非新闻页面的。而我们的目的是找出所有新闻页面，所以需要对URL进行选择，通过观察发现，在东方财富网站中，所有新闻网站都是以http://finance.eastmoney.com/a/.....html的结构构成，所以根据此构造正则表达式来匹配这样的链接，从而筛掉其他非新闻链接。
+</code></pre>
+<p>​    然后在东方财富网主页并随机选择一个新闻网页进入其中，在控制台查看其源代码，找到title、keywords、description等关键字，根据其结构进行解析。</p>
+<p><img src="https://github.com/yangshuangcpt/web/raw/main/mid_project/images/1619702126343.png" alt="Images"> </p>
+<h4 id="将数据存储到MYSQL数据库"><a href="#将数据存储到MYSQL数据库" class="headerlink" title="将数据存储到MYSQL数据库"></a>将数据存储到MYSQL数据库</h4><p>​    在爬取到新闻页面之后，需要把这些数据进行存储，考虑到放到数据库中便于进行之后的查找工作，本项目使用mysql数据库存储爬取的数据，如果没有安装mysql也可以使用sqlite来存取。连接数据库的方法是通过mysql.js文件，要记得修改其中的用户名和密码（一般都为root）。在插入数据之前，需要先创建一个数据库以及数据表，数据表中定义了表格的列名以及存储的数据类型，这一代码在create_table.sql中。然后通过crawl_eastmoney.js将数据写入到mysql数据库，具体的方式是通过mysql.query语句执行插入操作。</p>
+<p>​    要注意，在爬取新闻页面之前，要查看该URL内容是否已经存储在数据库中了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//一些简单的mysql语句</span><br><span class="line">mysql -u root -p	//进入mysql</span><br><span class="line">create database crawl;	//创建名为crawl的数据库</span><br><span class="line">use crawl;			//切换到crawl数据库中</span><br><span class="line">create table fetches....	//创建表格（该语句很长此处不完整）</span><br><span class="line">show tables;		//查看当前数据库中的表格信息</span><br><span class="line">drop table fetches;	//删除表格</span><br><span class="line">select * from fetches;	//查询语句</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//使用mysql语句将数据存储到数据库中</span><br><span class="line">var fetchAddSql = &#x27;INSERT INTO eastmoney(url,title,&#x27; +</span><br><span class="line">	&#x27;keywords, source_name, description, publish_date,&#x27;+</span><br><span class="line">	&#x27;crawltime,content) VALUES(?,?,?,?,?,?,?,?)&#x27;;</span><br><span class="line">var fetchAddSql_Params = [fetch.url, fetch.title, </span><br><span class="line">	fetch.keywords, fetch.source_name, fetch.description, fetch.publish_date,</span><br><span class="line">	fetch.crawltime.toFormat(&quot;YYYY-MM-DD HH24:MI:SS&quot;), fetch.content];</span><br><span class="line"></span><br><span class="line">//执行sql，数据库中fetch表里的url属性是unique的，不会把重复的url内容写入数据库</span><br><span class="line">mysql.query(fetchAddSql, fetchAddSql_Params, function(qerr, vals, fields) &#123;</span><br><span class="line">if (qerr) &#123;</span><br><span class="line">console.log(qerr);</span><br><span class="line">&#125;</span><br><span class="line">&#125;); //mysql写入</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//查询当前的URL是否已经在mysql数据库中了</span><br><span class="line">var fetch_url_Sql = &#x27;select url from eastmoney where url=?&#x27;;</span><br><span class="line">var fetch_url_Sql_Params = [myURL];</span><br><span class="line">mysql.query(fetch_url_Sql, fetch_url_Sql_Params, function(qerr, vals, fields) &#123;</span><br><span class="line">    if (vals.length &gt; 0) &#123;</span><br><span class="line">    	console.log(&#x27;URL duplicate!&#x27;)</span><br><span class="line">    &#125; else newsGet(myURL); //读取新闻页面</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+
+<p>​    把数据存入数据库之后可以通过Navicat查看mysql数据库中的内容，如果有乱码的话，可以修改解码方式，具体为utf-8还是GBK根据网页的不同而各异。我们可以在图片的右下角看到该表格中共有649条数据，也没有乱码，由此可见数据存储到数据库是成功的。</p>
+<p><img src="https://github.com/yangshuangcpt/web/raw/main/mid_project/images/1619704779644.png" alt="Images"> </p>
+<h2 id="爬取结果查询与展示"><a href="#爬取结果查询与展示" class="headerlink" title="爬取结果查询与展示"></a>爬取结果查询与展示</h2><p>​    此处的查询过程为：</p>
+<ul>
+<li><strong>在网页中输入&#x2F;选择所需查询关键字并提交</strong></li>
+<li><strong>网页通过get方法传递参数给HTML文件，HTML文件进行解析并将参数交给node.js</strong></li>
+<li><strong>node.js连接到后端的mysql数据库进行语句查询</strong></li>
+<li><strong>node.js将查询结果返回给HTML文件，HTML以表格的形式展示到网页当中，并使用css进行美化。</strong></li>
+</ul>
+<p>​    爬取结果的查询其实可以直接在数据库中进行查询，但是考虑到在mysql数据库中直接查询需要会sql语句才能进行，不便于操作也不美观，所以本项目使用express脚手架来创建一个网站框架，具体框架如下所示。可以根据用户在网页中输入&#x2F;选择的标题和时间进行新闻查询，并且能够将查询结果分页显示，此外还使用了css对网页进行了一定程度的美化。<em>其中，标题的查询是只要包含查询词就会予以显示，不必输入完整的标题。标题和时间都并非必填项，如果用户不输入该项，则会放弃对该项进行筛选，如果所有查询项都不输入，则会返回数据库中所有结果。</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">bin</span><br><span class="line"> www			启动文件</span><br><span class="line">public			静态资源文件目录，该文件夹下不需要映射可以直接访问</span><br><span class="line"> search.html	功能为查询爬取结果</span><br><span class="line"> time.html		功能为时间热度分析</span><br><span class="line"> style.css		美化页面</span><br><span class="line">routes			路由文件,以指定的http请求方式暴露给用户，并在用户请求后将结果返回</span><br><span class="line"> index.js</span><br><span class="line"> users.js</span><br><span class="line">views			视图文件</span><br><span class="line">app.js			初始化文件，引入依赖项</span><br><span class="line">mysql.js		连接mysql</span><br></pre></td></tr></table></figure>
+
+<p>​    由于express脚手架已经搭建好了前后端的基本框架，我们在此基础上进行路由的修改、功能的实现以及美化即可。需要进行更改的文件有index.js, search.html, time.html, style.css。下面将附上index.js, search.html, style.css的代码，time.html会在时间热度分析时附上。</p>
+<h4 id="index-js"><a href="#index-js" class="headerlink" title="index.js"></a>index.js</h4><p>​    index.js的主要功能是接收从search.html中传入的参数（如标题的参数为request.query.title），然后根据参数进行sql语句的查询，并将查询结果通过response返回给search.html。此处主要实现的是对标题和时间两个字段的查询。需要注意的一个问题是，用户在前端页面查询时可能会空缺某个字段从而产生一些空值，可以通过修改sql查询语句或者通过if条件控制避免出错，并且达到不管哪些项为空值，都能进行查询（全为空则返回所有结果）。此外，在写sql语句时要注意，由于语句较长，往往需要分成几行写，每一行的末尾要记得加上空格，某些字段要记得加上引号，在写完sql语句之后最好先到数据库中尝试执行一下，执行成功之后再放入index.js文件中。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line">//index.js</span><br><span class="line">var express = require(&#x27;express&#x27;);</span><br><span class="line">var router = express.Router();</span><br><span class="line">var mysql = require(&#x27;../mysql.js&#x27;);</span><br><span class="line"></span><br><span class="line">/* GET home page. */</span><br><span class="line">router.get(&#x27;/&#x27;, function(req, res, next) &#123;</span><br><span class="line">    res.render(&#x27;index&#x27;, &#123; title: &#x27;Express&#x27; &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">//与search.html相关联</span><br><span class="line">router.get(&#x27;/process_get1&#x27;, function(request, response) &#123;</span><br><span class="line">    //sql字符串和参数</span><br><span class="line">    if (!request.query.publish_date) &#123;</span><br><span class="line">        var fetchSql = &quot;select url,source_name,title,publish_date &quot; +</span><br><span class="line">        &quot;from eastmoney where title like &#x27;%&quot; + request.query.title + &quot;%&#x27; &quot; + </span><br><span class="line">        &quot;order by publish_date desc&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        var fetchSql = &quot;select url,source_name,title,publish_date &quot; +</span><br><span class="line">            &quot;from eastmoney where title like &#x27;%&quot; + request.query.title + &quot;%&#x27; &quot; + </span><br><span class="line">            &quot;and publish_date like &#x27;&quot; + request.query.publish_date + &quot;&#x27; &quot; +</span><br><span class="line">            &quot;order by publish_date desc&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    mysql.query(fetchSql, function(err, result, fields) &#123;</span><br><span class="line">        for (var i=0;i&lt;result.length;i++)&#123;</span><br><span class="line">            result[i].publish_date = result[i].publish_date.toLocaleDateString()</span><br><span class="line">        &#125;</span><br><span class="line">        response.writeHead(200, &#123;</span><br><span class="line">            &quot;Content-Type&quot;: &quot;application/json&quot;</span><br><span class="line">        &#125;);</span><br><span class="line">        response.write(JSON.stringify(result));</span><br><span class="line">        response.end();</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">//与time.html相关联</span><br><span class="line">router.get(&#x27;/process_get2&#x27;, function(request, response) &#123;</span><br><span class="line">    //sql字符串和参数</span><br><span class="line">    </span><br><span class="line">    if (!request.query.publish_date1 &amp;&amp; !request.query.publish_date2) &#123;</span><br><span class="line">        var fetchSql = &quot;select publish_date ,COUNT(*) AS `num` &quot; +</span><br><span class="line">        &quot;from eastmoney where content like &#x27;%&quot; + request.query.content + &quot;%&#x27; &quot; + </span><br><span class="line">        &quot;GROUP BY publish_date &quot; + </span><br><span class="line">        &quot;order by publish_date desc&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    else if(!request.query.publish_date1)&#123;</span><br><span class="line">        var fetchSql = &quot;select publish_date ,COUNT(*) AS `num` &quot; +</span><br><span class="line">            &quot;from eastmoney where content like &#x27;%&quot; + request.query.content + &quot;%&#x27; &quot; + </span><br><span class="line">            &quot;and date(publish_date) &lt;= &#x27;&quot; + request.query.publish_date2 + &quot;&#x27; &quot; +</span><br><span class="line">            &quot;GROUP BY publish_date &quot; + </span><br><span class="line">            &quot;order by publish_date desc&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    else if(!request.query.publish_date2)&#123;</span><br><span class="line">        var fetchSql = &quot;select publish_date ,COUNT(*) AS `num` &quot; +</span><br><span class="line">            &quot;from eastmoney where content like &#x27;%&quot; + request.query.content + &quot;%&#x27; &quot; + </span><br><span class="line">            &quot;and date(publish_date) &gt;= &#x27;&quot; + request.query.publish_date1 + &quot;&#x27; &quot; +</span><br><span class="line">            &quot;GROUP BY publish_date &quot; + </span><br><span class="line">            &quot;order by publish_date desc&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        var fetchSql = &quot;select publish_date ,COUNT(*) AS `num` &quot; +</span><br><span class="line">            &quot;from eastmoney where content like &#x27;%&quot; + request.query.content + &quot;%&#x27; &quot; + </span><br><span class="line">            &quot;and date(publish_date) between &#x27;&quot; + request.query.publish_date1 + &quot;&#x27; and &#x27;&quot; + request.query.publish_date2 + &quot;&#x27; &quot; +</span><br><span class="line">            &quot;GROUP BY publish_date &quot; + </span><br><span class="line">            &quot;order by publish_date desc&quot;;</span><br><span class="line">        console.log(fetchSql);</span><br><span class="line">    &#125;</span><br><span class="line">    mysql.query(fetchSql, function(err, result, fields) &#123;</span><br><span class="line">        for (var i=0;i&lt;result.length;i++)&#123;</span><br><span class="line">            result[i].publish_date = result[i].publish_date.toLocaleDateString()</span><br><span class="line">        &#125;</span><br><span class="line">        response.writeHead(200, &#123;</span><br><span class="line">            &quot;Content-Type&quot;: &quot;application/json&quot;</span><br><span class="line">        &#125;);</span><br><span class="line">        response.write(JSON.stringify(result));</span><br><span class="line">        response.end();</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br><span class="line">module.exports = router;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="search-html"><a href="#search-html" class="headerlink" title="search.html"></a>search.html</h4><p>​    search.html需要提供一个表单到前端网页供用户输入查询参数，然后网页会将用户输入的参数进行返回给HTML(此处通过get方法), HTML解析参数并传递给index.js，最后将index.js返回的查询结果以表格的形式展现到网页中。以及，此处使用了bootstrap进行分页，但此处的代码框架并非我写，而是调用了网上已经写好的css和js文件完成了分页的功能并且以表格的形式进行显示。我写的不分页的代码在github项目代码中进行了注释，也可以很好的进行表格展示。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">//search.html</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;header&gt;</span><br><span class="line">    &lt;link href=&quot;./style.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;</span><br><span class="line">    &lt;script src=&quot;https://cdn.bootcss.com/jquery/3.4.1/jquery.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;link href=&quot;http://www.itxst.com/package/bootstrap-table-1.14.1/bootstrap-4.3.1/css/bootstrap.css&quot; rel=&quot;stylesheet&quot; /&gt;</span><br><span class="line">    &lt;link href=&quot;http://www.itxst.com/package/bootstrap-table-1.14.1/bootstrap-table-1.14.1/bootstrap-table.css&quot; rel=&quot;stylesheet&quot; /&gt;</span><br><span class="line">    &lt;script src=&quot;http://www.itxst.com/package/bootstrap-table-1.14.1/bootstrap-table-1.14.1/bootstrap-table.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/header&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;notboot&quot;&gt;财经新闻查询&lt;/div&gt; </span><br><span class="line">    &lt;div&gt;</span><br><span class="line">    &lt;form&gt;</span><br><span class="line">        标题：&lt;input type=&quot;text&quot; name=&quot;title_text&quot; id=&quot;query1&quot;&gt; 时间：&lt;input type=&quot;date&quot; name=&quot;publish_date&quot; id=&quot;query2&quot;&gt; &lt;input class=&quot;form-submit&quot; type=&quot;button&quot; value=&quot;查询&quot;&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;table width=&quot;100%&quot; id=&quot;record2&quot;&gt;&lt;/table&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        $(document).ready(function() &#123;</span><br><span class="line">            //点击查询按钮之后会进行以下操作</span><br><span class="line">            $(&quot;input:button&quot;).click(function() &#123;</span><br><span class="line">                $.get(&#x27;/process_get1?title=&#x27; + $(&quot;#query1&quot;).val() + &#x27;&amp;publish_date=&#x27; + $(&quot;#query2&quot;).val(), function(data) &#123;</span><br><span class="line">                    $(&quot;#record2&quot;).bootstrapTable(&#123;</span><br><span class="line">                    search:false,		//加上搜索控件						</span><br><span class="line">                    method: &#x27;get&#x27;,		//请求方式</span><br><span class="line">                    cache: false,       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）</span><br><span class="line">                    pagination: true,   //是否显示分页（*）</span><br><span class="line">                    sortable: true,    //是否启用排序</span><br><span class="line">                    sortOrder: &quot;asc&quot;,   //排序方式</span><br><span class="line">                    striped: true,      //是否显示行间隔色</span><br><span class="line">                    uniqueId: &quot;url&quot;, //每一行的唯一标识，一般为主键列</span><br><span class="line">                    pageSize: 5,        //每页的记录行数</span><br><span class="line">                    sidePagination : &#x27;client&#x27;,              </span><br><span class="line">                    columns:[&#123;</span><br><span class="line">                        field:&#x27;url&#x27;,</span><br><span class="line">                        title:&#x27;链接&#x27;</span><br><span class="line">                    &#125;,&#123;</span><br><span class="line">                        field:&#x27;source_name&#x27;,</span><br><span class="line">                        title:&#x27;来源&#x27;</span><br><span class="line">                    &#125;,&#123;</span><br><span class="line">                        field:&#x27;title&#x27;,</span><br><span class="line">                        title:&#x27;标题&#x27;</span><br><span class="line">                    &#125;,&#123;</span><br><span class="line">                        field:&#x27;publish_date&#x27;,</span><br><span class="line">                        title:&#x27;发表日期&#x27;</span><br><span class="line">                    &#125;],</span><br><span class="line">                    data: data,</span><br><span class="line">                    &#125;);</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">        &#125;);</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="style-css"><a href="#style-css" class="headerlink" title="style.css"></a>style.css</h4><p>​    style.css主要是为了美化html页面，就不放在此处浪费空间了。</p>
+<h4 id="结果展示"><a href="#结果展示" class="headerlink" title="结果展示"></a>结果展示</h4><p>​    在cmd中输入node bin&#x2F;www，然后本地访问<a target="_blank" rel="noopener" href="http://127.0.0.1:3000/search.html%EF%BC%8C%E5%8D%B3%E5%8F%AF%E7%9C%8B%E5%88%B0%E7%BB%93%E6%9E%9C%E3%80%82">http://127.0.0.1:3000/search.html，即可看到结果。</a></p>
+<p>分页之前</p>
+<p><img src="https://github.com/yangshuangcpt/web/raw/main/mid_project/images/1619710028983.png" alt="Images"></p>
+<p>分页之后（每页5项内容）</p>
+<p><img src="https://github.com/yangshuangcpt/web/raw/main/mid_project/images/1619709736106.png" alt="Images"></p>
+<p>如果不输入时间，则会将所有天包含该关键词的新闻都显示出来，并且按照发表日期进行排序，越晚发表的新闻越靠前（这一功能的实现会在下面进行说明）。</p>
+<p><img src="https://github.com/yangshuangcpt/web/raw/main/mid_project/images/1619761922.png" alt="Images"></p>
+<h2 id="时间热度分析"><a href="#时间热度分析" class="headerlink" title="时间热度分析"></a>时间热度分析</h2><p>​    本项目的时间热度分析是指，可以显示某个关键词在每一天中出现的次数，以此可以看出该词在哪天是热词在哪天无人问津，从而可以大概分析出每天的焦点事件是什么。其实词语热度分析采用图表更为合适，但是由于我只连续的爬取了3天网页，所有网页大都集中在这三天，其他天数的很少，图表也不能完全展示出其波动效果，所以使用了表格进行展示，如果长期爬取新闻的话，可以以折线图的方式展现词语的时间热度。</p>
+<p>​    此功能需要新增time.html文件并修改index.js和css文件，index.js在前文已经进行了展示，就不再此陈列了，但有一点值得注意，由于时间数据在mysql数据库中和网页中是按照不同的时区时间的，所以日期可能会不一致，如下图所示，所以在从数据库中取出时间数据的时候，需要使用.toLocaleDateString()函数，将时间数据变成字符串，从而使得前后端时间数据一致。</p>
+<p><img src="https://github.com/yangshuangcpt/web/raw/main/mid_project/images/diftime.jpg" alt="Images"></p>
+<p>​    下面主要介绍time.html的功能，该文件同search.html的框架一样，也是将网页的输入参数传递给index.js然后将index.js返回的结果返回到网页中，它需要提供一个表单到前端网页供用户输入参数，然后将结果以表格的形式返回。表格的内容为该关键词在每一天出现的次数。</p>
+<p>​    考虑到时间越靠近现在，信息就越重要，所以表格按照时间顺序进行展示，发表时间越晚（越靠近现在）就越靠前。这一功能在index.js中进行实现，主要是通过在sql查询语句中增加”order by publish_date desc”这一语句进行排序。</p>
+<h4 id="time-html"><a href="#time-html" class="headerlink" title="time.html"></a>time.html</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;header&gt;</span><br><span class="line">    &lt;link href=&quot;./style.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;/&gt;</span><br><span class="line">    &lt;script src=&quot;https://cdn.bootcss.com/jquery/3.4.1/jquery.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/header&gt;</span><br><span class="line"></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;div class=&quot;notboot&quot;&gt;财经新闻时间热点查询&lt;/div&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">    &lt;form&gt;</span><br><span class="line">        &lt;br&gt; 查询标题：&lt;input type=&quot;text&quot; name=&quot;title_text&quot; id=&quot;query1&quot;&gt;</span><br><span class="line">        &lt;br&gt; 开始时间：&lt;input type=&quot;date&quot; name=&quot;publish_date1&quot; id=&quot;query2&quot;&gt; </span><br><span class="line">        &lt;br&gt; 结束时间：&lt;input type=&quot;date&quot; name=&quot;publish_date2&quot; id=&quot;query3&quot;&gt;</span><br><span class="line">        &lt;br&gt; &lt;input class=&quot;form-submit&quot; type=&quot;button&quot; value=&quot;查询&quot;&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div class=&quot;cardLayout&quot; style=&quot;margin: 10px 0px&quot;&gt;</span><br><span class="line">        &lt;table id=&quot;record3&quot; class=&quot;tabtop13&quot;&gt;&lt;/table&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        $(document).ready(function() &#123;</span><br><span class="line">            //点击查询按钮之后会进行以下操作</span><br><span class="line">            $(&quot;input:button&quot;).click(function() &#123;</span><br><span class="line">                $.get(&#x27;/process_get2?title=&#x27; + $(&quot;#query1&quot;).val() + &#x27;&amp;publish_date1=&#x27; + $(&quot;#query2&quot;).val() + &#x27;&amp;publish_date2=&#x27; + $(&quot;#query3&quot;).val(), function(data) &#123;</span><br><span class="line">                    $(&quot;#record3&quot;).empty();</span><br><span class="line">                    $(&quot;#record3&quot;).append(&#x27;&lt;tr&gt;&lt;th&gt;publish_date&lt;/th&gt;&lt;th&gt;number&lt;/th&gt;&lt;/tr&gt;&#x27;);</span><br><span class="line">                    for (let list of data) &#123;</span><br><span class="line">                        let table = &#x27;&lt;tr&gt;&#x27;;</span><br><span class="line">                        Object.values(list).forEach(element =&gt; &#123;</span><br><span class="line">                            table += (&#x27;&lt;td&gt;&#x27;+ element + &#x27;&lt;/td&gt;&#x27;);</span><br><span class="line">                        &#125;);</span><br><span class="line">                        $(&quot;#record3&quot;).append(table + &#x27;&lt;/tr&gt;&#x27;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">        &#125;);</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-{% block page_class %}page-post-detail{% endblock %}
+<h4 id="结果展示-1"><a href="#结果展示-1" class="headerlink" title="结果展示"></a>结果展示</h4><p>​    最开始我是按照标题进行关键词匹配的，但是考虑到标题的字数有限，很多有意义的词语都没有包含在内，所以改为按照文章内容进行关键词匹配，只要文章中出现了该词语，则为该词贡献了热度，这也符合我们的生活常识。由以下两张图可以看出，用内容匹配出的结果要多很多。</p>
+<p>​    在cmd中输入node bin&#x2F;www，然后本地访问<a target="_blank" rel="noopener" href="http://127.0.0.1:3000/time.html%EF%BC%8C%E5%8D%B3%E5%8F%AF%E7%9C%8B%E5%88%B0%E7%BB%93%E6%9E%9C%E3%80%82">http://127.0.0.1:3000/time.html，即可看到结果。</a></p>
+<p>按照标题进行关键词匹配：（表格按照发表日期进行排序）</p>
+<p><img src="https://github.com/yangshuangcpt/web/raw/main/mid_project/images/1619752645.png" alt="Images"></p>
+<p>按照文章内容进行关键词匹配：</p>
+<p><img src="https://github.com/yangshuangcpt/web/raw/main/mid_project/images/1619752267.png" alt="Images"></p>
+<p>输入标题和开始结束时间后：</p>
+<p><img src="https://github.com/yangshuangcpt/web/raw/main/mid_project/images/1619752496.png" alt="Images"></p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>​    通过本次实验，我知道了如何通过node.js进行爬虫，并在研究html页面时对标签有了进一步的了解，也学会使用正则表达式匹配合适的文字与链接。此外我还了解到网站前后端的框架是怎样的，用户在网页中输入的参数是如何被HTML进行解析并传递到node.js中的，然后又是怎样通过node.js与mysql数据库进行连接并对数据进行存储或查询的，以及从数据库中得到的数据是怎样传回到HTML并在页面以特定的格式进行显示的。此外，我还学会使用css文件对html文件进行美化，对前端有了更进一步的了解。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/03/15/web%E7%BC%96%E7%A8%8B%E6%9C%9F%E4%B8%AD%E9%A1%B9%E7%9B%AE/" data-id="cl0rxf04l0003z8w50wcadbec" data-title="web编程期中项目" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/03/15/web%E7%BC%96%E7%A8%8B%E6%9C%9F%E6%9C%AB%E9%A1%B9%E7%9B%AE/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          web编程期末项目
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/03/15/%E4%BD%A0%E5%A5%BD%EF%BC%8CHexo/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">你好，Hexo</div>
+    </a>
+  
+</nav>
+
+  
+</article>
 
 
-{% block content %}
+</section>
+        
+          <aside id="sidebar">
+  
+    
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+  
+    
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/03/">March 2022</a></li></ul>
     </div>
   </div>
 
-{% endblock %}
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/03/15/web%E7%BC%96%E7%A8%8B%E6%9C%9F%E6%9C%AB%E9%A1%B9%E7%9B%AE/">web编程期末项目</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/15/web%E7%BC%96%E7%A8%8B%E6%9C%9F%E4%B8%AD%E9%A1%B9%E7%9B%AE/">web编程期中项目</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/15/%E4%BD%A0%E5%A5%BD%EF%BC%8CHexo/">你好，Hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2022/03/15/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
